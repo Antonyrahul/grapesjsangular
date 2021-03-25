@@ -90,15 +90,15 @@ blockManager.add('my-first-block', {
   <img src="https://picsum.photos/70/70"/>
   <div class="my-label-block">Label block</div>
 </div>`,
-  content: '<div class="test"><p>name:rahul</p></div><style>p{color: aqua;}</style>',
+  content: '<div class="test"><p>name:rahul</p></div><style>p{color: blue;}</style>',
 });
 blockManager.add('my-seocnd-block', {
   label: 'Simple block 1',
-  content: '<div class="test"><p>name:rahul</p></div><style>p{color: aqua;}</style>',
+  content: '<div class="test"><p style="color:green">name:rahul</p></div><style>p{color: aqua;}</style>',
 });
 blockManager.add('my-third-block', {
   label: 'Simple block 2',
-  content: '<div class="test"> <p>name:rahul</p></div><style>p{color: aqua;}</style>',
+  content: '<div class="test"> <p style="color:red">name:rahul</p></div><style>p{color: aqua;}</style>',
 });
 }
 }
