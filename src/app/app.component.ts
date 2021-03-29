@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import "../assets/css/grapes.min.css"
-import * as grapesjs from "../assets/grapes.min.js";
+import '../assets/css/grapesjs-preset-webpage.min.css';
+import grapesjs from "../assets/grapes.min.js";
+import * as grapesweb from "../assets/grapesjs-preset-webpage.min.js"
 //import grapesjs from 'grapesjs';
-import 'grapesjs-preset-webpage';
+import grapesjsweb from 'grapesjs-preset-webpage';
+import 'grapesjs-blocks-basic'
 
 @Component({
   selector: 'app-root',
@@ -12,9 +15,11 @@ import 'grapesjs-preset-webpage';
 export class AppComponent {
   title = 'grapesjstest';
   editor;
-  
+ 
+
 ngOnInit() {
   this.editor = grapesjs.init({
+    
     container: '#gjs',
     fromElement: true,
     // Size of the editor
@@ -34,7 +39,8 @@ ngOnInit() {
     },
     components: '',
     style: '',
-    plugins: ['gjs-preset-webpage'],
+    
+    plugins: [grapesjsweb],
     pluginsOpts: {
       'gjs-preset-webpage': {
         navbarOpts: false,

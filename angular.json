@@ -25,9 +25,12 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/css/grapes.min.css"
+              "src/assets/css/grapes.min.css",
+              "src/assets/css/grapesjs-preset-webpage.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/grapesjs-preset-webpage.min.js"
+            ]
           },
           "configurations": {
             "production": {
