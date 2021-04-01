@@ -19,12 +19,17 @@ export class AppComponent {
 
 ngOnInit() {
   this.editor = grapesjs.init({
+
+    
     
     container: '#gjs',
     fromElement: true,
     // Size of the editor
     height: '2000px',
     width: 'auto',
+    canvas: {
+      styles: ['https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap'],
+  },
     // Disable the storage manager for the moment
     storageManager: {
       id: 'gjs-',             // Prefix identifier that will be used inside storing and loading
@@ -86,6 +91,43 @@ ngOnInit() {
       // },
 
   });
+  var styleManager = this.editor.StyleManager
+            styleManager.addProperty('Typography', {
+              name: 'Alternate Fonts',
+              property: 'font-family',
+              type: 'select',
+              defaults: '',
+              list: [{
+                value: '',
+                name: ''
+              },
+              {
+                value: 'Bank Gothic',
+                name: 'Bank Gothic'
+              }]
+            })
+            const prop = this.editor.StyleManager.getProperty('typography', 'font-family');
+            console.log(prop)
+prop.set('options', [
+    {value: "'Roboto', sans-serif", name: 'Roboto'},{value:"'Montserrat', sans-serif", name: 'Montserrat'}
+	
+]);
+setTimeout(() => {
+  let styleManager = this.editor.StyleManager;
+        let typographySector = styleManager.getSector('Typography');
+        console.log(typographySector)
+        let fontProperty = styleManager.getProperty('Typography', 'font-family');
+        console.log(fontProperty)
+       //console.log( fontProperty.getOptions());
+        let list = fontProperty.get('list');
+        list.push({ value: 'Roboto, Arial, sans-serif', name: 'Roboto' });
+        fontProperty.set('list', list);
+        fontProperty.view.input = null;
+        fontProperty.addOption({ value: 'Roboto, Arial, sans-serif', name: 'Roboto' })
+fontProperty.view.onRender();
+        
+        styleManager.render();
+}, 2000);
 
   var blockManager = this.editor.BlockManager;
 
@@ -106,6 +148,8 @@ blockManager.add('my-third-block', {
   label: 'Simple block 2',
   content: '<div class="test"> <p style="color:red">name:rahul</p></div><style>p{color: aqua;}</style>',
 });
+
+
 }
 }
 
